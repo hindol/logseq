@@ -19,6 +19,7 @@
 ;; TODO: move to frontend.handler.editor.commands
 
 (defonce *show-commands (atom false))
+(defonce *hovering-command (atom nil))
 (defonce *slash-caret-pos (atom nil))
 (defonce slash "/")
 (defonce *show-block-commands (atom false))
@@ -263,6 +264,7 @@
   (when restore-slash-caret-pos?
     (reset! *slash-caret-pos nil))
   (reset! *show-commands false)
+  (reset! *hovering-command nil)
   (reset! *matched-commands @*initial-commands)
   (reset! *angle-bracket-caret-pos nil)
   (reset! *show-block-commands false)
